@@ -1,0 +1,8 @@
+{
+  "name": "cocktail-maker",
+  "app_id": "d8b7b9a2",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
