@@ -9,6 +9,25 @@
 
 
 <ion-content padding>
-  <p>Mit dem Raspberry Pi verbinden</p>
+  <h1>Mit dem Raspberry Pi verbinden</h1>
+  <ion-list padding>
+    <button ion-button block (click)="startScanning()">Scan</button>
+    <ion-spinner  name="crescent" *ngIf="gettingDevices"></ion-spinner>
+    <ion-list-header>
+      Gekoppelte Geräte
+    </ion-list-header>
+    <ion-item *ngFor="let device of pairedDevices">
+      {{device.name}}
+    </ion-item>
+    <ion-list-header>
+      Verfügbare Geräte
+    </ion-list-header>
+    <ion-item *ngFor='let device of unpairedDevices'>
+    <span (click)="selectDevice(device.address)">
+      {{device.name}}
+    </span>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="disconnect()">Verbindung beenden</button>
 
 </ion-content>
