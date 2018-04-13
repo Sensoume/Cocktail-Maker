@@ -8,12 +8,16 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {EinstellungenPage} from "../pages/einstellungen/einstellungen";
+import {CocktailsPage} from "../pages/cocktails/cocktails";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    EinstellungenPage,
+    CocktailsPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    EinstellungenPage,
+    CocktailsPage
   ],
   providers: [
     StatusBar,
