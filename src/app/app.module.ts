@@ -8,8 +8,10 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {EinstellungenPage} from "../pages/einstellungen/einstellungen";
-import {CocktailsPage} from "../pages/cocktails/cocktails";
+import { EinstellungenPage } from "../pages/einstellungen/einstellungen";
+import { CocktailsPage } from "../pages/cocktails/cocktails";
+import { ConnectPage } from "../pages/connect/connect";
+import { MixPage } from "../pages/mix/mix";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {CocktailsPage} from "../pages/cocktails/cocktails";
     HomePage,
     ListPage,
     EinstellungenPage,
-    CocktailsPage
+    CocktailsPage,
+    ConnectPage,
+    MixPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import {CocktailsPage} from "../pages/cocktails/cocktails";
     HomePage,
     ListPage,
     EinstellungenPage,
-    CocktailsPage
+    CocktailsPage,
+    ConnectPage,
+    MixPage
   ],
   providers: [
     StatusBar,

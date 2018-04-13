@@ -9,13 +9,15 @@ $colors: (
   secondary:  #435d8c,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  light-grey: #A4A4A4
 );
 
 //Top Toolbar
 $toolbar-md-background: color($colors, secondary);
 $toolbar-ios-background:  color($colors, secondary);
 $toolbar-wp-background:  color($colors, secondary);
+$text-color: color($colors, light);
 
 //$list-md-background-color: color($colors, secondary);
 //$list-md-color: color($colors, light);

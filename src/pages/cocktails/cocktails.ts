@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ToastController, ToastOptions} from 'ionic-angular';
 
 /**
  * Generated class for the CocktailsPage page.
@@ -15,7 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CocktailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  toastOptions:ToastOptions;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
+    this.toastOptions = {
+      message: "Flasche gewählt",
+      duration: 3000
+    }
+  }
+
+  ButtonPressed() {
+    this.toastOptions.message = "Cocktail wird gemixed";
+    this.toastCtrl.create(this.toastOptions).present();
   }
 
   ionViewDidLoad() {

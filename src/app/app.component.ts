@@ -5,8 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import {EinstellungenPage} from "../pages/einstellungen/einstellungen";
-import {CocktailsPage} from "../pages/cocktails/cocktails";
+import { EinstellungenPage } from "../pages/einstellungen/einstellungen";
+import { CocktailsPage } from "../pages/cocktails/cocktails";
+import { ConnectPage } from "../pages/connect/connect";
+import { MixPage } from "../pages/mix/mix";
 
 @Component({
   templateUrl: 'app.html'
@@ -16,17 +18,18 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, icon: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Einstellungen', component: EinstellungenPage },
-      { title: 'Cocktails', component: CocktailsPage }
+      { title: 'Startseite', icon: 'home', component: HomePage },
+      { title: 'Verbinden', icon: 'wifi', component: ConnectPage },
+      { title: 'Mixen', icon: 'flask', component: MixPage },
+      { title: 'Cocktails', icon: 'beer', component: CocktailsPage },
+      { title: 'Einstellungen', icon: 'cog', component: EinstellungenPage }
     ];
 
   }

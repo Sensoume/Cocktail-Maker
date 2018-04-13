@@ -8,28 +8,30 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content padding class="card-background-page">
+  <ion-card text-center>
     <img src="assets/imgs/cocktail-sexonthebeach.jpg"/>
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title class="card-title">
         Sex on the Beach
       </ion-card-title>
-      <p>
+      <p class="card-subtitle">
         So verführerisch wie sein Name: Sex on the Beach. Die fruchtige Versuchung im Longdrink-Format verwandelt Pfirsichlikör, Orangensaft und Cranberry in einen Wodka-Cocktail mit Highball-Anleihen. Übrigens – ohne Wodka wird’s zum Safer Sex on the Beach!
       </p>
     </ion-card-content>
+    <button ion-button round class="card-button" (click)='ButtonPressed();'>Bestellen</button>
   </ion-card>
-  <ion-card>
+  <ion-card text-center>
     <img src="assets/imgs/pina-colada-cocktail.jpg"/>
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title class="card-title">
         Pina Colada
       </ion-card-title>
-      <p>
+      <p class="card-subtitle">
         Karibik pur! Mit einer Pina Colada kommt sofort Urlaubsstimmung auf. Der tropisch-fruchtige Sommer-Cocktail verwandelt Ananas, braunen und weißen Rum, Kokos und Sahne in eine wunderbar cremige Mischung, die auch in unseren Breiten Tiki-Kultur aufleben lässt.
       </p>
     </ion-card-content>
+    <button ion-button round class="card-button" (click)='ButtonPressed();'>Bestellen</button>
   </ion-card>
 
 </ion-content>
