@@ -3,36 +3,70 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Verbinden</ion-title>
+    <ion-title>Verbindung</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <h1>Mit dem Raspberry Pi verbinden</h1>
-  <p>Einfach ein verfügbares Gerät auswählen:</p>
-  <ion-list padding>
-    <ion-list-header>
-      Verfügbare Geräte
-    </ion-list-header>
-    <ion-item *ngFor='let device of unpairedDevices'>
-    <span (click)="selectDevice(device.address)">
-      {{device.name}}
-    </span>
-    </ion-item>
-  </ion-list>
+  <p>Bitte wählen Sie den Raspberry Pi aus der Liste aus:</p>
+  <p>Verbindungsstatus: <a style="color: red;" [innerHTML]="btstatus"></a></p>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button block (click)="startScanning()">Scan</button>
+        <button ion-button block (click)="connect()">Verbindung aufbauen</button>
       </ion-col>
       <ion-col>
         <button ion-button block (click)="disconnect()">Verbindung beenden</button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-spinner class="spinnerCenter" name="bubbles" *ngIf="gettingDevices"></ion-spinner>
+      <ion-col>
+        <h2>Settings für den Cocktail-Maker</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>Intervall pro cl in Sek</ion-label>
+            <ion-input type="number" [(ngModel)]="settings_pause" placeholder="1"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Getränk in Flasche 1</ion-label>
+            <ion-input type="text" [(ngModel)]="flask1" placeholder="{{flask1}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Getränk in Flasche 2</ion-label>
+            <ion-input type="text" [(ngModel)]="flask2" placeholder="{{flask2}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Getränk in Flasche 3</ion-label>
+            <ion-input type="text" [(ngModel)]="flask3" placeholder="{{flask3}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Getränk in Flasche 4</ion-label>
+            <ion-input type="text" [(ngModel)]="flask4" placeholder="{{flask4}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Getränk in Flasche 5</ion-label>
+            <ion-input type="text" [(ngModel)]="flask5" placeholder="{{flask5}}"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>
+          <ion-label>Einstellungen sichern:</ion-label>
+        </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block (click)='ButtonClick()'>Speichern</button>
+      </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

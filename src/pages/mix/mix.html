@@ -12,25 +12,12 @@
   <p>(Fülle dein Glas mit jeweils 2cl pro Klick)</p>
   <ion-grid>
     <ion-row>
-      <ion-col width-100>
-        <button ion-button full (click)='ButtonClick1();'>
+      <ion-col width-50>
+        <button ion-button round outline *ngFor="let b of buttons" (click)='ButtonClick(b.id)'>
           <ion-icon name="flask"></ion-icon>
-          Flasche 1 </button>
-        <button ion-button full (click)='ButtonClick2();'>
+          {{b.title}}{{b.id}}
           <ion-icon name="flask"></ion-icon>
-          Flasche 2 </button>
-        <button ion-button full (click)='ButtonClick3();'>
-          <ion-icon name="flask"></ion-icon>
-          Flasche 3 </button>
-        <button ion-button full (click)='ButtonClick4();'>
-          <ion-icon name="flask"></ion-icon>
-          Flasche 4 </button>
-        <button ion-button full (click)='ButtonClick5();'>Flasche 5</button>
-        <button ion-button full (click)='ButtonClick6();'>Flasche 6</button>
-        <button ion-button full (click)='ButtonClick7();'>Flasche 7</button>
-        <button ion-button full (click)='ButtonClick8();'>Flasche 8</button>
-        <button ion-button full (click)='ButtonClick9();'>Flasche 9</button>
-        <button ion-button full (click)='ButtonClick10();'>Flasche 10</button>
+        </button>
       </ion-col>
     </ion-row>
   </ion-grid>

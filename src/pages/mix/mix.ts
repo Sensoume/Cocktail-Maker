@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController, ToastOptions} from 'ionic-angular';
+import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
 
 /**
  * Generated class for the MixPage page.
@@ -16,58 +17,51 @@ import {IonicPage, NavController, NavParams, ToastController, ToastOptions} from
 export class MixPage {
 
   toastOptions:ToastOptions;
+  buttons: Array<{title: string, id: number}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
+  constructor(private bluetoothSerial: BluetoothSerial, public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
     this.toastOptions = {
       message: "Flasche gewählt",
       duration: 3000
     }
+
+    this.buttons = [
+      { title: 'Flasche ', id: 1},
+      { title: 'Flasche ', id: 2},
+      { title: 'Flasche ', id: 3},
+      { title: 'Flasche ', id: 4},
+      { title: 'Flasche ', id: 5}
+    ];
   }
 
 
-  ButtonClick1() {
-    this.toastOptions.message = "Flasche 1 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick2() {
-    this.toastOptions.message = "Flasche 2 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick3() {
-    this.toastOptions.message = "Flasche 3 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick4() {
-    this.toastOptions.message = "Flasche 4 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick5() {
-    this.toastOptions.message = "Flasche 5 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick6() {
-    this.toastOptions.message = "Flasche 6 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick7() {
-    this.toastOptions.message = "Flasche 7 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick8() {
-    this.toastOptions.message = "Flasche 8 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick9() {
-    this.toastOptions.message = "Flasche 9 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
-  }
-  ButtonClick10() {
-    this.toastOptions.message = "Flasche 10 wird gewählt";
-    this.toastCtrl.create(this.toastOptions).present();
+  ButtonClick(id : number) {
+    this.bluetoothSerial.isConnected().then((success) => {
+      this.bluetoothSerial.write("mix:"+id.toString()).then((success) => {
+          this.toastOptions.message = "Flasche "+id+" wird gewählt";
+          this.toastCtrl.create(this.toastOptions).present();
+      },
+        (error) => {
+          this.toastOptions.message = "Bitte verbinden Sie sich mit dem Raspberry Pi";
+          this.toastCtrl.create(this.toastOptions).present();
+        })
+    },
+      (error) =>{
+        this.toastOptions.message = "Bitte verbinden Sie sich mit dem Raspberry Pi";
+        this.toastCtrl.create(this.toastOptions).present();
+      });
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MixPage');
   }
-
 }
+
+/*
+{ title: 'Flasche ', id: 6},
+{ title: 'Flasche ', id: 7},
+{ title: 'Flasche ', id: 8},
+{ title: 'Flasche ', id: 9},
+{ title: 'Flasche ', id: 10}
+*/

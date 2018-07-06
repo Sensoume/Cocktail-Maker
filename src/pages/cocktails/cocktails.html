@@ -9,16 +9,28 @@
 
 
 <ion-content padding class="card-background-page">
-  <ion-card text-center *ngFor="let c of cards">
-    <img src="{{c.url}}"/>
-    <ion-card-content>
-      <ion-card-title class="card-title">
-        {{c.title}}
-      </ion-card-title>
-      <p class="card-subtitle">
-        {{c.subtitle}}
-      </p>
-    </ion-card-content>
-    <button ion-button round class="card-button" (click)='ButtonPressed();'>Bestellen</button>
-  </ion-card>
+      <ion-slides #slider pager="true" loop="false" autoplay="2000" speed="2000">
+        <ion-slide *ngFor="let c of cards">
+          <ion-card text-center >
+            <ion-card-content>
+              <ion-card-title class="card-title">
+                {{c.title}}
+              </ion-card-title>
+              <img class="card-image" src="{{c.url}}"/>
+              <h5 ion-text class="card-subtitle">
+                {{c.subtitle}}
+              </h5>
+              <ion-list>
+                <ion-item>
+                  <strong>Zutaten:</strong>
+                </ion-item>
+                <ion-item *ngFor="let i of c.ingredient">
+                  <strong>{{i}}</strong>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+            <button ion-button round class="card-button" (click)='ButtonPressed();'>Bestellen</button>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
 </ion-content>

@@ -12,7 +12,9 @@ import { EinstellungenPage } from "../pages/einstellungen/einstellungen";
 import { CocktailsPage } from "../pages/cocktails/cocktails";
 import { ConnectPage } from "../pages/connect/connect";
 import { MixPage } from "../pages/mix/mix";
-import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
+import { BluetoothSerial } from "@ionic-native/bluetooth-serial";
+import { IonicStorageModule } from "@ionic/storage";
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,10 @@ import {BluetoothSerial} from "@ionic-native/bluetooth-serial";
   ],
   imports: [
     BrowserModule,
+    IonicStorageModule.forRoot({
+      name: '__cocktaildatabase',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
