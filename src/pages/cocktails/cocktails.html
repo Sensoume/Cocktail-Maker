@@ -1,15 +1,13 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+
     <ion-title>Cocktails</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="card-background-page">
-      <ion-slides #slider pager="true" loop="false" autoplay="2000" speed="2000">
+      <ion-slides #slider>
         <ion-slide *ngFor="let c of cards">
           <ion-card text-center >
             <ion-card-content>

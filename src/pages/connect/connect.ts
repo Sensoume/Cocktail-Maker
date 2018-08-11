@@ -67,11 +67,11 @@ export class ConnectPage {
   };
 
   init() {
-    this.flask1 = 'Orangensaft';
-    this.flask2 = 'Cola';
-    this.flask3 = 'Wodka';
-    this.flask4 = 'Rum';
-    this.flask5 = 'Tequila';
+    this.flask1 = 'Wodka';
+    this.flask2 = 'Brandy';
+    this.flask3 = 'Orangensaft';
+    this.flask4 = 'Maracujasaft';
+    this.flask5 = 'Cranberrysaft';
   }
 
   setStorage() {
@@ -100,5 +100,17 @@ export class ConnectPage {
         this.toastOptions.message = "Bitte verbinden Sie sich mit dem Raspberry Pi";
         this.toastCtrl.create(this.toastOptions).present();
       });
+  }
+
+  clean() {
+    this.bluetoothSerial.isConnected().then((success) => {
+      this.bluetoothSerial.write("ct:clean:1:10:2:10:3:10:4:10:5:10").then((success) => {
+          this.toastOptions.message = "Reinigung gestartet";
+        },
+        (error) => {
+          this.toastOptions.message = "Bitte verbinden Sie sich mit dem Raspberry Pi";
+        });
+      this.toastCtrl.create(this.toastOptions).present();
+    });
   }
 }

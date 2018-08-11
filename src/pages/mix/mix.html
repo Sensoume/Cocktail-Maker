@@ -9,10 +9,10 @@
 
 <ion-content padding>
   <p>Mixe dir dein eigenes Getränk:</p>
-  <p>(Fülle dein Glas mit jeweils 2cl pro Klick)</p>
+  <p>(Fülle dein Glas mit jeweils 1cl pro Klick)</p>
   <ion-grid>
     <ion-row>
-      <ion-col width-50>
+      <ion-col>
         <button ion-button round outline *ngFor="let b of buttons" (click)='ButtonClick(b.id)'>
           <ion-icon name="flask"></ion-icon>
           {{b.title}}{{b.id}}

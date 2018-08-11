@@ -21,10 +21,10 @@ import { IonicStorageModule } from "@ionic/storage";
     MyApp,
     HomePage,
     ListPage,
-    EinstellungenPage,
-    CocktailsPage,
-    ConnectPage,
-    MixPage
+    //EinstellungenPage,
+    //CocktailsPage,
+    //ConnectPage,
+    //MixPage
   ],
   imports: [
     BrowserModule,
